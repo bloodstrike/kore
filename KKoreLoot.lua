@@ -185,8 +185,12 @@ local function populate_items()
         item["candidates"] = get_ml_candidates(i)
 
         items[i] = item
-        KLD:DoCallbacks("loot_item", items[i])
+        KLD.items = items
+
         count = count + 1
+        KLD.num_items = count
+        
+        KLD:DoCallbacks("loot_item", items[i])
       end
     end
   end
